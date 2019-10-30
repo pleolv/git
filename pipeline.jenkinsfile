@@ -1,16 +1,24 @@
+#!groovy
 pipeline {
   agent any
-  stage('Poczatek') {
-    sh 'echo $user'
-   // cos tutaj bedzie )
-  }
-  stage('Testuje') {
+  stages {
+    stage('Poczatek') {
+      steps {
+        sh 'echo $user'
+      }
+    }
+    stage('Testuje') {
     // co nie zrobisz dla nauki )
-    sh 'ansible all -m ping'
-    sh 'ls -la'
-  }
-  stage('release') {
-    echo "Serwer dziala :"
-    sh 'ansible all -a "uptime"'
+      steps {
+        sh 'ansible all -m ping'
+        sh 'ls -la'
+      }
+    }
+    stage('release') {
+      steps {
+        echo "Serwer dziala :"
+        sh 'ansible all -a "uptime"'
+        }
+    }
   }
 }
