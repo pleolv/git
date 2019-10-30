@@ -27,7 +27,7 @@ pipeline {
     stage('Azure vms information'){
       steps {
         az vm list | grep -i name
-      }
+        }
     }
   }
 }
