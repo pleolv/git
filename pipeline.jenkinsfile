@@ -1,4 +1,4 @@
-node {
+pipeline {
   stage('Poczatek') {
       sh 'echo $user'
       // cos tutaj bedzie )
