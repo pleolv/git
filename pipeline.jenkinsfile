@@ -1,17 +1,15 @@
 pipeline {
-  agent none
-  stages {
-    stage('Poczatek') {
-      sh 'echo $user'
-      // cos tutaj bedzie )
+  agent any
+  stage('Poczatek') {
+    sh 'echo $user'
+   // cos tutaj bedzie )
   }
   stage('Testuje') {
     // co nie zrobisz dla nauki )
     sh 'ansible all -m ping'
     sh 'ls -la'
   }
-  agent any
-  stage('Wkoncu release') {
+  stage('release') {
     echo "Serwer dziala :"
     sh 'ansible all -a "uptime"'
   }
