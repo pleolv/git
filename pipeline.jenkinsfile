@@ -21,8 +21,13 @@ pipeline {
     stage('release') {
       steps {
         echo "Serwer dziala :"
-        sh 'ansible all -a "uptime"'
+        sh 'ansible all -a "uptime"
         }
+    }
+    stage('Azure vms information'){
+      steps {
+        az vm list | grep -i name
+      }
     }
   }
 }
