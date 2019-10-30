@@ -1,13 +1,6 @@
 pipeline {
   agent none
   stages {
-    stage('Environment test') {
-      agent any 
-      steps {
-
-pipeline {
-  agent none
-  stages {
     stage('Poczatek') {
       sh 'echo $user'
       // cos tutaj bedzie )
@@ -16,12 +9,10 @@ pipeline {
     // co nie zrobisz dla nauki )
     sh 'ansible all -m ping'
     sh 'ls -la'
-    sh 'ansible-playbook linetoadd.yml'
   }
   agent any
   stage('Wkoncu release') {
-   echo "Serwer dziala :"
-   sh 'ansible all -a "uptime"'
-   sh 'ansible all -a "tail -n 2 /etc/motd"'
+    echo "Serwer dziala :"
+    sh 'ansible all -a "uptime"'
   }
 }
