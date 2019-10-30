@@ -1,10 +1,17 @@
 pipeline {
-  agent any
-  stage('Poczatek') {
+  agent none
+  stages {
+    stage('Environment test') {
+      agent any 
+      steps {
+
+pipeline {
+  agent none
+  stages {
+    stage('Poczatek') {
       sh 'echo $user'
       // cos tutaj bedzie )
   }
-  agent any
   stage('Testuje') {
     // co nie zrobisz dla nauki )
     sh 'ansible all -m ping'
