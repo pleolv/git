@@ -1,0 +1,17 @@
+node {
+  stage('Poczatek') {
+      sh 'echo $user'
+      // cos tutaj bedzie )
+  }
+  stage('Testuje') {
+    // co nie zrobisz dla nauki )
+    sh 'ansible all -m ping'
+    sh 'ls -la'
+    sh 'ansible-playbook linetoadd.yml'
+  }
+  stage('Wkoncu release') {
+   echo "Serwer dziala :"
+   sh 'ansible all -a "uptime"'
+   sh 'ansible all -a "tail -n 2 /etc/motd"'
+  }
+}
